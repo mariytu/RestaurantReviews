@@ -35,9 +35,17 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 900;
+}
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  position: relative;
+  z-index: 895;
 }
 #footer {
   background-color: #1B4965;
@@ -231,7 +239,7 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -246,14 +254,13 @@ nav h1 a {
 }
 .inside #map {
   background-color: #ccc;
-  height: 100%;
+  height: 101%;
   width: 100%;
 }
 .inside #footer {
-  bottom: 0;
-  position: absolute;
   width: 50%;
 }
+
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -266,6 +273,8 @@ nav h1 a {
 }
 #restaurant-img {
 	width: 90%;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -283,10 +292,11 @@ nav h1 a {
   text-transform: uppercase;
 	width: 90%;
 }
-#restaurant-container, #reviews-container {
+#restaurant-container,
+#reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
+  padding: 0px 18px 15px;
   width: 50%;
 }
 #reviews-container {
@@ -304,18 +314,61 @@ nav h1 a {
   padding: 0;
 }
 #reviews-list li {
-  background-color: #fff;
-    border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
   position: relative;
   width: 85%;
 }
+#reviews-list .ibox {
+  background-color: #fff;
+  border: 2px solid #f3f3f3;
+  border-top-left-radius: 20px;
+}
+#reviews-list .ibox-content {
+  padding: 15px 25px;
+}
+.ibox-title {
+  background-color: #333;
+  border-image: none;
+  margin-bottom: 0;
+  padding: 15px 90px 8px 15px;
+  color: #fff;
+  border-top-left-radius: 20px;
+}
+.ibox-title .ibox-tools {
+  display: block;
+  float: none;
+  margin-top: 0;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0;
+  text-align: right;
+  color: #ccc;
+}
+.label {
+  font-weight: 600;
+  padding: 3px 8px;
+  text-shadow: none;
+  border-radius: 0.25em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.label-primary {
+  background-color: #ffa500;
+  color: #fff;
+}
+.ibox .label {
+    font-size: 12px;
+}
 #reviews-list li p {
   margin: 0 0 10px;
+  color: inherit;
+}
+#reviews-list .ibox-content p {
+  padding-top: 17px;
 }
 #restaurant-hours td {
   color: #666;
@@ -346,7 +399,68 @@ nav h1 a {
       font-size: 14pt;
     }
     #footer {
-      font-size: 1.3em;
+      font-size: 1.5em;
+    }
+    #breadcrumb {
+      width: calc(100% - 80px);
+    }
+    .inside #map-container,
+    .inside #restaurant-container,
+    .inside #reviews-container {
+      width: 100%;
+    }
+    .inside #map-container {
+      height: 790px;
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+    .inside header {
+      width: 105%;
+    }
+    #maincontent {
+      display: flex;
+      flex-wrap: wrap;
+      width: 105%;
+    }
+    .inside #restaurant-container {
+      margin-top: 70%;
+    }
+    #restaurant-img,
+    #restaurant-cuisine,
+    #reviews-list li {
+      width: 100%;
+    }
+    .inside #footer {
+      width: 100%;
+    }
+    #breadcrumb li {
+      font-size: 20pt;
+    }
+    #restaurant-address {
+      font-size: 10pt;
+    }
+    #restaurant-hours td {
+      font-size: 19pt;
+    }
+    #reviews-list .ibox-tools p {
+      font-size: 24pt;
+    }
+    #reviews-list li {
+      margin: 0 0 45px;
+    }
+    #reviews-list .ibox-content {
+      padding: 25px 35px;
+    }
+    #reviews-list .ibox-content p {
+      font-size: 9pt;
+    }
+    #restaurant-container,
+    #reviews-container {
+      padding: 140px 40px 30px;
+    }
+    #reviews-container {
+      padding-top: 30px;
     }
 }
 @media
@@ -377,6 +491,79 @@ nav h1 a {
     #footer {
       font-size: 1.2em;
     }
+    #breadcrumb {
+      width: calc(100% - 80px);
+    }
+    .inside #map-container,
+    .inside #restaurant-container,
+    .inside #reviews-container {
+      width: 100%;
+    }
+    .inside #map-container {
+      height: 390px;
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+    .inside header {
+      width: 106%;
+    }
+    #maincontent {
+      display: flex;
+      flex-wrap: wrap;
+      width: 106%;
+    }
+    .inside #restaurant-container {
+      margin-top: 28%;
+    }
+    #restaurant-img,
+    #restaurant-cuisine {
+      width: 100%;
+    }
+    .inside #footer {
+      width: 101%;
+    }
+    #breadcrumb li {
+      font-size: 16pt;
+    }
+    #restaurant-address {
+      font-size: 12pt;
+    }
+    #restaurant-hours td {
+      font-size: 14pt;
+    }
+    #reviews-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      width: 100%;
+    }
+    #reviews-list .ibox-tools p {
+      font-size: 15pt;
+    }
+    #reviews-list li {
+      width: 47%;
+      margin: 0 10px 20px;
+    }
+    #reviews-list li p {
+      font-size: 16pt;
+    }
+    .ibox .label {
+      font-size: 12pt;
+    }
+    #reviews-list .ibox-content {
+      padding: 25px 35px;
+    }
+    #reviews-list .ibox-content p {
+      font-size: 12pt;
+    }
+    #restaurant-container,
+    #reviews-container {
+      padding: 140px 40px 30px;
+    }
+    #reviews-container {
+      padding-top: 30px;
+    }
 }
 
 /* ==================== Tablet Support ==================== */
@@ -406,6 +593,29 @@ nav h1 a {
     }
     #footer {
       font-size: 1em;
+    }
+    #restaurant-container,
+    #reviews-container {
+      padding: 0px 18px 15px;
+    }
+    #reviews-list li {
+      width: 90%;
+    }
+    .inside #footer {
+      width: 45%;
+      font-size: 0.8em;
+    }
+    .inside #map-container {
+      height: 89%;
+    }
+    #reviews-list li p {
+      font-size: 15pt; 
+    }
+    #reviews-list .ibox-content p {
+      font-size: 13pt;
+    }
+    #reviews-list .ibox-tools p {
+      font-size: 11pt;
     }
 }
 

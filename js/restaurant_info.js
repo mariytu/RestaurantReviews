@@ -132,21 +132,38 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
 	const li = document.createElement('li');
+	const ibox = document.createElement('div');
+	ibox.className = 'ibox';
+	li.appendChild(ibox);
+
+	const iboxTitle = document.createElement('div');
+	iboxTitle.className = 'ibox-title';
+	ibox.appendChild(iboxTitle);
+
 	const name = document.createElement('p');
 	name.innerHTML = review.name;
-	li.appendChild(name);
+	iboxTitle.appendChild(name);
+
+	const iboxTools = document.createElement('div');
+	iboxTools.className = 'ibox-tools';
+	iboxTitle.appendChild(iboxTools);
 	
 	const date = document.createElement('p');
 	date.innerHTML = review.date;
-	li.appendChild(date);
-	
-	const rating = document.createElement('p');
-	rating.innerHTML = `Rating: ${review.rating}`;
-	li.appendChild(rating);
+	iboxTools.appendChild(date);
+
+	const iboxContent = document.createElement('div');
+	iboxContent.className = 'ibox-content';
+	ibox.appendChild(iboxContent);
+
+	const labelRating = document.createElement('label');
+	labelRating.className = 'label label-primary';
+	labelRating.innerHTML = `Rating: ${review.rating}`;
+	iboxContent.appendChild(labelRating);
 	
 	const comments = document.createElement('p');
 	comments.innerHTML = review.comments;
-	li.appendChild(comments);
+	iboxContent.appendChild(comments);
 	
 	return li;
 }
