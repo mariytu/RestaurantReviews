@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-body,td,th,p{
+body,td,th,p {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
 	color: #333;
@@ -25,7 +25,7 @@ a:hover, a:focus {
 	color: #62B6CB;
 	text-decoration: none;
 }
-a img{
+a img {
 	border: none 0px #fff;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -56,6 +56,7 @@ header {
   text-align: center;
   text-transform: uppercase;
 }
+
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -87,36 +88,45 @@ nav h1 a {
     margin: 0;
     width: calc(50% - 80px);
 }
-
 /* Display list items side by side */
 #breadcrumb li {
     display: inline;
 }
-
 /* Add a slash symbol (/) before/behind each list item */
 #breadcrumb li+li:before {
     padding: 8px;
     color: black;
     content: "/\00a0";
 }
-
 /* Add a color to all links inside the list */
 #breadcrumb li a {
     color: #0275d8;
     text-decoration: none;
 }
-
+/* Disable color link for current page in breadcrumb */
+#breadcrumb li a.current {
+    color: #333;
+    text-decoration: none;
+    cursor: default;
+}
 /* Add a color on mouse-over */
 #breadcrumb li a:hover {
     color: #01447e;
     text-decoration: underline;
 }
+/* Disable the add a color on mouse-over for current page in breadcrumb */
+#breadcrumb li a.current:hover {
+  color: #333;
+  text-decoration: none;
+}
+
 /* ====================== Map ====================== */
 #map {
   height: 400px;
   width: 100%;
   background-color: #ccc;
 }
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -260,7 +270,6 @@ nav h1 a {
 .inside #footer {
   width: 50%;
 }
-
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -378,7 +387,7 @@ nav h1 a {
 @media
   (max-device-width: 560px){
     #restaurants-list {
-      width: 95%;
+      width: auto;
     }
     #restaurants-list li {
       width: 100%;
@@ -476,7 +485,7 @@ nav h1 a {
   (min-device-width: 560px) 
   and (max-device-width: 660px){
     #restaurants-list {
-      width: 95%;
+      width: auto;
     }
     #restaurants-list li {
       width: 70%;
@@ -582,7 +591,7 @@ nav h1 a {
   (min-device-width: 660px) 
   and (max-device-width: 1000px) {
     #restaurants-list {
-      width: 100%;
+      width: 90%;
     }
     #restaurants-list li {
       width: 40%;
